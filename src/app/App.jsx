@@ -1,9 +1,62 @@
-import { Home } from "../pages/index";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 
-export default function App() {
+import {
+  Home,
+  Error,
+  FAQs,
+  Video,
+  Reviews,
+  Overview,
+  Newslater,
+  Collection,
+} from "../pages/index";
+import Navbar from "../components/Navbar";
+
+const App = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <>
+      <Navbar />
+      <Outlet />
+    </>
   );
-}
+};
+
+const appRoute = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/video",
+        element: <Video />,
+      },
+      {
+        path: "/faqs",
+        element: <FAQs />,
+      },
+      {
+        path: "/reviews",
+        element: <Reviews />,
+      },
+      {
+        path: "/overview",
+        element: <Overview />,
+      },
+      {
+        path: "/newslater",
+        element: <Newslater />,
+      },
+      {
+        path: "/collection",
+        element: <Collection />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+export default appRoute;

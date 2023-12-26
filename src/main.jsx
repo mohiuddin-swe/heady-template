@@ -1,5 +1,9 @@
 import "./index.css";
-import App from "./app/App.jsx";
-import ReactDOM from "react-dom/client";
+import appRoute from "./app/App.jsx";
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={appRoute} />
+);
