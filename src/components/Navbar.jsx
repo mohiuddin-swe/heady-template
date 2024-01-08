@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { BiMenuAltRight } from "react-icons/bi";
 
 import "./css/Navbar.css";
 import logo from "../assets/main-logo.png";
@@ -49,6 +50,10 @@ export default function Navbar() {
       <Link to={"/"}>
         <img className="logo_img" src={logo} alt="logo" />
       </Link>
+
+      <div className="mobile">
+        <BiMenuAltRight size={50} />
+      </div>
 
       <ul>
         {navItems.map((item) => (

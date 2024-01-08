@@ -13,7 +13,7 @@
 }
 
 .navbar > ul {
-  gap: 2rem;
+  gap: 3rem;
   display: flex;
 }
 
@@ -22,10 +22,10 @@
 }
 
 .active {
-  color: #fdaca5;
+  color: #ffa79f;
 }
 .noActive {
-  color: #3d3a38;
+  color: #1a1918;
 }
 
 .nav_link {
@@ -38,6 +38,10 @@
 }
 
 .nav_link:hover {
-  color: #fdaca5;
+  color: #ffa79f;
   transition: 0.2s ease-in-out;
+}
+
+.mobile {
+  display: none;
 }
