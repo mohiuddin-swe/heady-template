@@ -1,38 +1,69 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
+import "./css/Navbar.css";
 import logo from "../assets/main-logo.png";
 
+const navItems = [
+  {
+    id: 1,
+    name: "home",
+    path: "/",
+  },
+  {
+    id: 2,
+    name: "overview",
+    path: "/overview",
+  },
+  {
+    id: 3,
+    name: "video",
+    path: "/video",
+  },
+  {
+    id: 4,
+    name: "reviews",
+    path: "/reviews",
+  },
+  {
+    id: 5,
+    name: "collection",
+    path: "/collection",
+  },
+  {
+    id: 6,
+    name: "FAQs",
+    path: "/faqs",
+  },
+  {
+    id: 7,
+    name: "newslater",
+    path: "/newslater",
+  },
+];
+
 export default function Navbar() {
+  const { pathname } = useLocation();
+
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div style={{ backgroundColor: "pink", display: "inline-block" }}>
-        <Link to={"/"}>
-          <img src={logo} alt="logo" />
-        </Link>
-      </div>
-      <ul style={{ display: "flex", gap: "2rem" }}>
-        <li>
-          <Link to={"/"}> home</Link>
-        </li>
-        <li>
-          <Link to={"/overview"}>overview</Link>
-        </li>
-        <li>
-          <Link to={"/video"}> video</Link>
-        </li>
-        <li>
-          <Link to={"/reviews"}> reviews</Link>
-        </li>
-        <li>
-          <Link to={"/faqs"}> FAQs</Link>
-        </li>
-        <li>
-          <Link to={"/collection"}> collection</Link>
-        </li>
-        <li>
-          <Link to={"/newslater"}> newslater</Link>
-        </li>
+    <nav className="navbar">
+      <Link to={"/"}>
+        <img className="logo_img" src={logo} alt="logo" />
+      </Link>
+
+      <ul>
+        {navItems.map((item) => (
+          <li key={item?.id}>
+            <Link
+              className={`nav_link ${
+                pathname === item?.path ? "active" : "noActive"
+              }`}
+              to={item?.path}
+            >
+              {item?.name}
+            </Link>
+          </li>
+        ))}
       </ul>
-    </div>
+    </nav>
   );
 }
